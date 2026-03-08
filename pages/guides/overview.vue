@@ -1,0 +1,106 @@
+<script setup lang="ts">
+import DocumentLayout from '~/feature/layout/components/DocumentLayout.vue'
+import { Archive, FolderTree, FileText, Workflow } from 'lucide-vue-next'
+
+const breadcrumbs = useBreadcrumbs()
+
+onMounted(() => {
+    breadcrumbs.set([
+        { label: 'Home', to: '/' },
+        { label: 'Guides', to: '/guides' },
+        { label: 'Product Overview' },
+    ])
+})
+
+const structure = [
+    {
+        icon: Archive,
+        title: 'Collections',
+        description:
+            'Use collections for company-level areas such as “Product”, “Operations”, or “Customer Success”.',
+    },
+    {
+        icon: FolderTree,
+        title: 'Groups',
+        description:
+            'Inside a collection, groups keep related documents together—think “Release Notes” or “Team Rituals”.',
+    },
+    {
+        icon: FileText,
+        title: 'Documents',
+        description:
+            'Documents are where you write, edit, and publish. Each doc has a status, optional publish state, and rich content blocks.',
+    },
+]
+</script>
+
+<template>
+    <DocumentLayout>
+        <div class="!min-h-[calc(100vh-107px)] overflow-y-auto">
+            <header class="border-b border-navy-20 bg-background-primary px-6 py-10 sm:px-10">
+                <div class="mx-auto flex max-w-4xl flex-col gap-4">
+                    <div
+                        class="inline-flex w-fit items-center gap-2 rounded-full border border-primary/30 bg-primary/10 px-3 py-1 text-xs font-semibold uppercase tracking-[0.28em] text-primary"
+                    >
+                        Structure
+                    </div>
+                    <h1 class="text-2xl sm:text-3xl font-bold leading-tight">
+                        How collections, groups, and documents fit together
+                    </h1>
+                    <p class="text-sm sm:text-base text-slate-600 dark:text-slate-300">
+                        Think of collections as your broad topics, groups as playlists of related
+                        docs, and the documents themselves as the living knowledge your team relies
+                        on.
+                    </p>
+                </div>
+            </header>
+
+            <div class="px-6 py-10 sm:px-10 lg:px-16">
+                <div class="mx-auto grid max-w-4xl gap-4 sm:grid-cols-3">
+                    <div
+                        v-for="item in structure"
+                        :key="item.title"
+                        class="flex h-full flex-col gap-3 rounded-xl border border-slate-200/50 bg-background-secondary p-4 shadow-sm"
+                    >
+                        <div
+                            class="inline-flex h-10 w-10 items-center justify-center rounded-lg bg-primary/10 text-primary"
+                        >
+                            <component :is="item.icon" class="h-5 w-5" />
+                        </div>
+                        <div class="space-y-1">
+                            <h2 class="text-base font-semibold text-slate-900 dark:text-slate-100">
+                                {{ item.title }}
+                            </h2>
+                            <p class="text-sm text-slate-600 dark:text-slate-300">
+                                {{ item.description }}
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <section class="mx-auto mt-10 max-w-4xl space-y-4">
+                    <h2 class="text-lg font-semibold text-slate-900 dark:text-slate-100">
+                        Workflow at a glance
+                    </h2>
+                    <div
+                        class="rounded-xl border border-slate-200/50 bg-background-secondary p-5 shadow-sm"
+                    >
+                        <div class="flex items-center gap-2 text-sm font-medium text-primary">
+                            <Workflow class="h-4 w-4" />
+                            Collect → Draft → Complete → Publish
+                        </div>
+                        <p class="mt-2 text-sm text-slate-600 dark:text-slate-300">
+                            Start by drafting inside a group, mark the doc
+                            <strong>DRAFT</strong>
+                            while you iterate, and promote it to
+                            <strong>COMPLETE</strong>
+                            once it’s review-ready. When you toggle
+                            <strong>Publish</strong>
+                            , readers see a focused preview.
+                        </p>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </DocumentLayout>
+</template>

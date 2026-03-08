@@ -1,0 +1,279 @@
+@import 'tailwindcss';
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+    --color-primary: #9333ea;
+    --color-primary-hover: #a855f7;
+    --color-primary-clicked: #7e22ce;
+    --color-primary-disable-bg: #f3e8ff;
+
+    --color-secondary: #f7f7f8;
+    --color-secondary-hover: #515a6c;
+    --color-secondary-clicked: #263147;
+    --color-secondary-ghost-icon: #7d8391;
+
+    --color-warning: #f78411;
+    --color-warning-hover: #fcb321;
+    --color-warning-clicked: #cc5500;
+
+    --color-danger: #ff4d4f;
+    --color-danger-hover: #ff7875;
+    --color-danger-clicked: #d9363e;
+
+    --color-green: #52c41a;
+    --color-green-hover: #73d13d;
+    --color-green-clicked: #389e0d;
+
+    --color-navy-100: #263147;
+    --color-navy-80: #515a6c;
+    --color-navy-60: #7d8391;
+    --color-navy-50: #9298a3;
+    --color-navy-40: #a8acb5;
+    --color-navy-20: #d3d6da;
+    --color-navy-10: #e9eaec;
+
+    --color-background-primary: #fdfdfe;
+    --color-background-secondary: #f9fafb;
+    --color-background-tertiary: #ffffff;
+    --color-text-main: #263147;
+
+    --status-yellow-bg: #fffcd7f4;
+    --status-yellow-dark: #fff185ca;
+    --status-yellow-border: #ceb600;
+
+    --status-blue-bg: #e3eefddb;
+    --status-blue-dark: #bedafe;
+    --status-blue-border: #3e61c7;
+
+    --status-green-bg: #dcfce7cb;
+    --status-green-dark: #c4e9d0;
+    --status-green-border: #17934a;
+
+    --status-gray-bg: #f3f4f6;
+    --status-gray-dark: #e5e7ebe6;
+    --status-gray-border: #1e2939;
+
+    --status-white-bg: #fafafa;
+    --status-white-dark: #f2f2f2;
+    --status-white-border: var(--color-navy-20);
+}
+
+@layer theme {
+    .dark {
+        --color-primary: #7e22ce;
+        --color-primary-hover: #a855f7;
+        --color-primary-clicked: #9333ea;
+        --color-primary-disable-bg: #2e1065;
+
+        --color-secondary: #2c2c2c;
+        --color-secondary-hover: #7d8391;
+        --color-secondary-clicked: #9298a3;
+        --color-secondary-ghost-icon: #a8acb5;
+
+        --color-warning: #fcb321;
+        --color-warning-hover: #f78411;
+        --color-warning-clicked: #cc5500;
+
+        --color-danger: #ff7875;
+        --color-danger-hover: #ff4d4f;
+        --color-danger-clicked: #d9363e;
+
+        --color-green: #73d13d;
+        --color-green-hover: #52c41a;
+        --color-green-clicked: #389e0d;
+
+        --color-navy-100: #e9eaec;
+        --color-navy-80: #d3d6da;
+        --color-navy-60: #a8acb5;
+        --color-navy-50: #9298a3;
+        --color-navy-40: #7d8391;
+        --color-navy-20: #515a6c;
+        --color-navy-10: #343a47;
+
+        --color-background-primary: #252525;
+        --color-background-secondary: #2c2c2c;
+        --color-background-tertiary: #272727;
+        --color-text-main: #b4b4b4;
+
+        --status-yellow-bg: #4b3a15;
+        --status-yellow-dark: #a3751a;
+        --status-yellow-border: #fcd34d;
+
+        --status-blue-bg: #1e293b;
+        --status-blue-dark: #3569bc;
+        --status-blue-border: #60a5fa;
+
+        --status-green-bg: #1a3d2f;
+        --status-green-dark: #35724b;
+        --status-green-border: #62ca89;
+
+        --status-gray-bg: #374151;
+        --status-gray-dark: #4b5563;
+        --status-gray-border: #6b7280;
+
+        --status-white-bg: #353535;
+        --status-white-dark: #ffffff;
+        --status-white-border: #d3d3d3;
+    }
+}
+
+@layer base {
+    h1 {
+        @apply text-4xl font-bold;
+        color: var(--color-primary);
+    }
+
+    h2 {
+        @apply text-2xl font-semibold;
+        color: var(--color-primary);
+    }
+
+    h3 {
+        @apply text-xl font-medium;
+    }
+
+    .dark h1 {
+        color: var(--color-primary-clicked);
+    }
+
+    .dark h2 {
+        color: var(--color-primary-clicked);
+    }
+
+    .dark h3 {
+        @apply text-gray-300;
+    }
+}
+
+@layer components {
+    .app-shell {
+        background-color: var(--color-background-primary);
+        color: var(--color-text-main);
+        @apply transition-colors;
+    }
+
+    .section-bg {
+        background-color: var(--color-background-secondary);
+    }
+
+    .card-bg {
+        background-color: var(--color-background-tertiary);
+    }
+
+    .menu-heading {
+        @apply text-sm font-semibold uppercase tracking-wide;
+        font-family: var(--font-body);
+        color: var(--color-navy-60);
+    }
+
+    .dark .menu-heading {
+        color: var(--color-navy-40);
+    }
+
+    .status-card {
+        @apply transition-all duration-200 ease-in-out;
+        @apply p-4 rounded-md border;
+        @apply cursor-pointer select-none;
+        background-color: var(--color-background-tertiary);
+    }
+
+    .status-icon {
+        @apply w-8 h-8 flex items-center justify-center rounded-md;
+    }
+
+    /* === Status: Yellow === */
+    .status-yellow {
+        border-color: var(--status-yellow-border);
+    }
+
+    .status-yellow.status-card--active {
+        background-color: var(--status-yellow-bg);
+        border-color: var(--status-yellow-border);
+    }
+
+    .status-yellow:hover {
+        background-color: var(--status-yellow-bg);
+        border-color: var(--status-yellow-border);
+    }
+
+    .status-yellow .status-icon {
+        background-color: var(--status-yellow-dark);
+    }
+
+    /* === Status: Blue === */
+    .status-blue {
+        border-color: var(--status-blue-border);
+    }
+
+    .status-blue.status-card--active {
+        background-color: var(--status-blue-bg);
+        border-color: var(--status-blue-border);
+    }
+
+    .status-blue:hover {
+        background-color: var(--status-blue-bg);
+        border-color: var(--status-blue-border);
+    }
+
+    .status-blue .status-icon {
+        background-color: var(--status-blue-dark);
+    }
+
+    /* === Status: Green === */
+    .status-green {
+        border-color: var(--status-green-border);
+    }
+
+    .status-green.status-card--active {
+        background-color: var(--status-green-bg);
+        border-color: var(--status-green-border);
+    }
+
+    .status-green:hover {
+        background-color: var(--status-green-bg);
+        border-color: var(--status-green-border);
+    }
+
+    .status-green .status-icon {
+        background-color: var(--status-green-dark);
+    }
+
+    /* === Status: Gray === */
+    .status-gray {
+        border-color: var(--status-gray-border);
+    }
+
+    .status-gray.status-card--active {
+        background-color: var(--status-gray-bg);
+        border-color: var(--status-gray-border);
+    }
+
+    .status-gray:hover {
+        background-color: var(--status-gray-bg);
+        border-color: var(--status-gray-border);
+    }
+
+    .status-gray .status-icon {
+        background-color: var(--status-gray-dark);
+    }
+
+    /* === Status: White (All/Default) === */
+    .status-white {
+        border-color: var(--status-white-border);
+    }
+
+    .status-white.status-card--active {
+        background-color: var(--status-white-bg);
+        border-color: var(--status-white-border);
+    }
+
+    .status-white:hover {
+        background-color: var(--status-white-bg);
+        border-color: var(--status-white-border);
+    }
+
+    .status-white .status-icon {
+        background-color: var(--status-white-dark);
+    }
+}

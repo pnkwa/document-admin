@@ -1,0 +1,3 @@
+pnpm eslint .
+pnpm list:prettier-check-format
+pnpm nuxt typecheck

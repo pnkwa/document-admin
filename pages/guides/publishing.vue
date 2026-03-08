@@ -1,0 +1,107 @@
+<script setup lang="ts">
+import DocumentLayout from '~/feature/layout/components/DocumentLayout.vue'
+import { Circle, CheckCircle2, Eye, Sparkles } from 'lucide-vue-next'
+
+const breadcrumbs = useBreadcrumbs()
+
+onMounted(() => {
+    breadcrumbs.set([
+        { label: 'Home', to: '/' },
+        { label: 'Guides', to: '/guides' },
+        { label: 'Publishing & Statuses' },
+    ])
+})
+
+const steps = [
+    {
+        title: 'Draft',
+        icon: Circle,
+        description:
+            'Edit freely. Drafts are private to editors and can be reorganized without notice to readers.',
+    },
+    {
+        title: 'Complete',
+        icon: CheckCircle2,
+        description:
+            'Mark a document complete once it has been reviewed and the content is final. Only complete docs can be published.',
+    },
+    {
+        title: 'Publish',
+        icon: Eye,
+        description:
+            'When a complete doc is published, its preview becomes visible to your audience. Unpublish to retract it instantly.',
+    },
+]
+</script>
+
+<template>
+    <DocumentLayout>
+        <div class="!min-h-[calc(100vh-107px)] overflow-y-auto">
+            <header class="border-b border-navy-20 bg-background-primary px-6 py-10 sm:px-10">
+                <div class="mx-auto flex max-w-4xl flex-col gap-4">
+                    <div
+                        class="inline-flex w-fit items-center gap-2 rounded-full border border-primary/30 bg-primary/10 px-3 py-1 text-xs font-semibold uppercase tracking-[0.28em] text-primary"
+                    >
+                        Status &amp; Publish
+                    </div>
+                    <h1 class="text-2xl sm:text-3xl font-bold leading-tight">
+                        Move from draft to done with confidence
+                    </h1>
+                    <p class="text-sm sm:text-base text-slate-600 dark:text-slate-300">
+                        Every document follows the same lifecycle. Use statuses to signal where work
+                        stands, and only publish when readers should see the latest version.
+                    </p>
+                </div>
+            </header>
+
+            <div class="px-6 py-10 sm:px-10 lg:px-16">
+                <div class="mx-auto max-w-4xl space-y-6">
+                    <div class="grid gap-4 sm:grid-cols-3">
+                        <div
+                            v-for="step in steps"
+                            :key="step.title"
+                            class="flex h-full flex-col gap-3 rounded-xl border border-slate-200/50 bg-background-secondary p-4 shadow-sm"
+                        >
+                            <div
+                                class="inline-flex h-10 w-10 items-center justify-center rounded-lg bg-primary/10 text-primary"
+                            >
+                                <component :is="step.icon" class="h-5 w-5" />
+                            </div>
+                            <h2
+                                class="mt-3 text-base font-semibold text-slate-900 dark:text-slate-100"
+                            >
+                                {{ step.title }}
+                            </h2>
+                            <p class="mt-1 text-sm text-slate-600 dark:text-slate-300">
+                                {{ step.description }}
+                            </p>
+                        </div>
+                    </div>
+
+                    <div
+                        class="rounded-xl border border-slate-200/50 bg-background-secondary p-5 shadow-sm"
+                    >
+                        <div class="flex items-center gap-2 text-sm font-semibold text-primary">
+                            <Sparkles class="h-4 w-4" />
+                            Quick tips
+                        </div>
+                        <ul class="mt-3 space-y-2 text-sm text-slate-600 dark:text-slate-300">
+                            <li>
+                                Drafts and complete docs save automatically—no need for manual
+                                syncing.
+                            </li>
+                            <li>
+                                Publish toggles live on the Preview page so you can review content
+                                before flipping visibility.
+                            </li>
+                            <li>
+                                Unpublishing immediately hides the preview from readers without
+                                deleting history.
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </DocumentLayout>
+</template>
