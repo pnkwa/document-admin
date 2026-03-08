@@ -10,6 +10,8 @@ A modern document management admin panel built with Nuxt 3, Vue 3, and Tailwind 
 - Responsive sidebar navigation
 - User authentication
 - Toast notifications
+<img width="1666" height="1051" alt="ภาพถ่ายหน้าจอ 2569-03-08 เวลา 23 37 28" src="https://github.com/user-attachments/assets/8f6b0fc1-4438-43a4-9b0e-9100af0bb83e" />
+<img width="1666" height="1051" alt="ภาพถ่ายหน้าจอ 2569-03-08 เวลา 23 37 41" src="https://github.com/user-attachments/assets/64d6418e-3364-4fc7-ba8d-f6cdbe0f9df7" />
 
 ## Tech Stack
 
