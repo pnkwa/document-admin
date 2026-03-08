@@ -4,8 +4,8 @@ A modern document management admin panel built with Nuxt 3, Vue 3, and Tailwind 
 
 ## Features
 
-- Document organization with collections and groups
-- Rich text editor for content creation
+- Document organization with collections and groups (nested sidebar)
+- Rich text editor for content creation with editorJS
 - Dark mode support
 - Responsive sidebar navigation
 - User authentication
