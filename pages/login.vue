@@ -113,7 +113,7 @@ watchEffect(() => {
                                 />
                             </svg>
                         </div>
-                        <span class="text-lg font-semibold">Daywork</span>
+                        <span class="text-lg font-semibold">Docs</span>
                         <!-- <span
                             class="ml-auto text-xs rounded-full bg-primary/10 text-primary px-2 py-0.5"
                         >
@@ -127,7 +127,9 @@ watchEffect(() => {
                     </p>
                     <img src="/public/icons/avatar-daywork.svg" class="w-[60%] h-[60%]" />
 
-                    <p class="mt-8 text-xs text-gray-500 dark:text-gray-400">© Daywork</p>
+                    <p class="mt-8 text-xs text-gray-500 dark:text-gray-400">
+                        © 2024 Document Admin
+                    </p>
                 </div>
             </aside>
 
@@ -136,7 +138,7 @@ watchEffect(() => {
                     <div class="text-center mb-6">
                         <h1 class="text-2xl font-semibold text-primary">Sign in</h1>
                         <p class="text-sm text-gray-600 dark:text-gray-300">
-                            Use your Daywork account
+                            Use your account credentials
                         </p>
                     </div>
 
